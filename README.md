@@ -10,6 +10,10 @@ The function is cubic, and looks something like the curve described by the follo
 f(x) = (x-2)(x-5)(2x-8) + 5
 ```
 
+It looks like this
+
+![func.png](func.png)
+
 The local minima we're trying to find is at `x~5`.
 
 ## Root finding
