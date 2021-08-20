@@ -10,10 +10,11 @@ double f(double x) {
 
 int main(void) {
     // Initialisation
+    int iter = 0;
     double x1 = 100.0;
     double x0 = 2.5;
     double h = 0.01;
-    double dx = 0.1;
+    double tolerance = 0.1;
 
     double fx, dfdx;
 
@@ -23,14 +24,15 @@ int main(void) {
         fx = f(x0);
         dfdx = (f(x0 + h) - fx) / h;
         x1 = x0 - fx / dfdx;
-        if (fabs(x1 - x0) < dx)
+        if (fabs(x1 - x0) < tolerance)
         {
             break;
         }
         x0 = x1;
+        iter ++;
     };
 
-    printf("%f", x1);
-
+    printf("%f\n", x1);
+    printf("Iterations: %i\n", iter);
     return 0;
 }

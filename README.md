@@ -2,13 +2,15 @@
 
 ## Problem
 
-This is a playground environment that may help me solve a real problem. My real problem is I have some `f(x)` that is hard to compute (potentially resource intensive), and I want to find `x` that finds the local minima for that function. For a single case the function is cubic, and looks something like the curve described by the following function
+This is a playground environment that may help me solve a real problem. My real problem is I have some `f(x)` that is hard to compute (potentially resource intensive), and I want to find `x` that finds the local minima for that function. Fortunately the interval over which I have to search is relatively small. 
+
+The function is cubic, and looks something like the curve described by the following function
 
 ```
 f(x) = (x-2)(x-5)(2x-8) + 5
 ```
 
-The local minima we're trying to find is at `x=5`.
+The local minima we're trying to find is at `x~5`.
 
 ## Root finding
 
@@ -22,4 +24,10 @@ until `| x_{i+1} - x_i | < threshold`, at which point you've found the closest r
 
 ## Local minima
 
-That was nice but doesn't solve our issue. 
+### Gradient descent
+
+We can attempt to use 
+
+### Bisection method
+
+We can try the bisection method for some interval (which we'll have to vary to see how the global minima influences this).
