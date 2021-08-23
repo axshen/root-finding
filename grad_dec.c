@@ -20,10 +20,11 @@ int main(void)
     double x1 = 2.6;
     double tolerance = 0.1;
 
+    fx0 = f(x0);
+
     // Loop
     while (TRUE)
     {
-        fx0 = f(x0);
         fx1 = f(x1);
         dfdx = (fx1 - fx0) / (x1 - x0);
         x2 = x1 - dfdx * step;
@@ -33,6 +34,7 @@ int main(void)
         }
         x0 = x1;
         x1 = x2;
+        fx0 = fx1;
         printf("%f\n", x1);
     
         iter ++;

@@ -11,24 +11,29 @@ double f(double x) {
 int main(void) {
     // Initialisation
     int iter = 0;
-    double x1 = 100.0;
     double x0 = 2.5;
-    double h = 0.01;
-    double tolerance = 0.1;
+    double x1 = 2.6;
+    double x2;
+    double tolerance = 0.01;
 
-    double fx, dfdx;
+    double fx0, fx1, dfdx;
+
+    fx0 = f(x0);
 
     // Run loop
     while (TRUE) 
     {
-        fx = f(x0);
-        dfdx = (f(x0 + h) - fx) / h;
-        x1 = x0 - fx / dfdx;
-        if (fabs(x1 - x0) < tolerance)
+        fx1 = f(x1);
+        dfdx = (fx1 - fx0) / (x1 - x0);
+        x2 = x0 - fx0 / dfdx;
+        if (fabs(x2 - x1) < tolerance)
         {
             break;
         }
+
         x0 = x1;
+        x1 = x2;
+        fx0 = fx1;
         iter ++;
     };
 

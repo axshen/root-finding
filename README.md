@@ -7,7 +7,7 @@ This is a playground environment that may help me solve a real problem. My real 
 The function is cubic, and looks something like the curve described by the following function
 
 ```
-f(x) = (x-2)(x-5)(2x-8) + 5
+f(x) = (x-2)(x-5)(2x-9) + 5
 ```
 
 It looks like this
@@ -30,7 +30,7 @@ until `| x_{i+1} - x_i | < threshold`, at which point you've found the closest r
 
 ### Gradient descent
 
-We can attempt to use 
+Gradient descent allows us to numerically find the local minima of a function. It works in a similar way to Newton's method.
 
 ### Bisection method
 
