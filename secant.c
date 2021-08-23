@@ -5,7 +5,7 @@
 #define TRUE 1
 
 double f(double x) {
-    double noise = 0.03;
+    double noise = 0.1;
     double random = (double)rand() / RAND_MAX * 2.0 - 1.0;
     double fx = fabs(sqrt(2.0 * x + 3.0) - 3.0 + noise * random);
     return fx;
@@ -15,9 +15,9 @@ int main(void) {
     // Initialisation
     int iter = 0;
     double x0 = 1.5;
-    double x1 = 4.0;
+    double x1 = 4.5;
     double x2;
-    double tolerance = 0.01;
+    double tolerance = 0.1;
 
     double fx0, fx1, dfdx;
 

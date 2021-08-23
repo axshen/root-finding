@@ -44,4 +44,6 @@ This is a superlinear convergence method that supposedly works better that Newto
 x_{i+1} = x_i - f(x_i) * (x_i - x_{i-1}) / (f(x_i) - f(x_{i-1}));
 ```
 
-This seems to work pretty well when we choose starting values for `x_{i}` and `x_{i-1}` that are not too close together. If we choose them too close together, we could get a ridiculous gradient for the line made by the two points. The code is available in [secant.c](secant.c)
+This seems to work pretty well when we choose starting values for `x_{i}` and `x_{i-1}` that are not too close together. If we choose them too close together, we could get a ridiculous gradient for the line made by the two points. It also seems to be the only approach out of those above that can deal with larger noise values (0.1) when the tolerance is increased.
+
+The code is available in [secant.c](secant.c). 
