@@ -1,11 +1,14 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
 #define TRUE 1
 
 double f(double x)
-{
-    double fx = (x - 1) * (x - 5) * (2 * x - 9) + 5;
+{   
+    double noise = 0.1;
+    double random = (double)rand() / RAND_MAX * 2.0 - 1.0;
+    double fx = fabs(sqrt(2.0 * x + 3.0) - 3.0 + noise * random);
     return fx;
 }
 
@@ -18,7 +21,7 @@ int main(void)
     double step = 0.01;
     double x0 = 2.5;
     double x1 = 2.6;
-    double tolerance = 0.1;
+    double tolerance = 0.01;
 
     fx0 = f(x0);
 
@@ -28,10 +31,16 @@ int main(void)
         fx1 = f(x1);
         dfdx = (fx1 - fx0) / (x1 - x0);
         x2 = x1 - dfdx * step;
-        if (fabs(dfdx) < tolerance)
+        if (fabs(fx1) < tolerance)
         {
             break;
         }
+
+        if (iter > 500) {
+            printf("Too many iterations required...\n");
+            break;
+        }
+
         x0 = x1;
         x1 = x2;
         fx0 = fx1;

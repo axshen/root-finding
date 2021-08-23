@@ -1,18 +1,21 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
 
 #define TRUE 1
 
 double f(double x) {
-    double fx = (x - 1) * (x - 5) * (2 * x - 9) + 5;
+    double noise = 0.01;
+    double random = (double)rand() / RAND_MAX * 2.0 - 1.0;
+    double fx = fabs(sqrt(2.0 * x + 3.0) - 3.0 + noise * random);
     return fx;
 }
 
 int main(void) {
     // Initialisation
     int iter = 0;
-    double x0 = 2.5;
-    double x1 = 2.6;
+    double x0 = 1.5;
+    double x1 = 1.6;
     double x2;
     double tolerance = 0.01;
 
@@ -26,8 +29,13 @@ int main(void) {
         fx1 = f(x1);
         dfdx = (fx1 - fx0) / (x1 - x0);
         x2 = x0 - fx0 / dfdx;
-        if (fabs(x2 - x1) < tolerance)
+        if (fx1 < tolerance)
         {
+            break;
+        }
+
+        if (iter > 500) {
+            printf("Too many iterations required...\n");
             break;
         }
 
